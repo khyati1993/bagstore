@@ -7,12 +7,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" href="resources/references/bagstore.css">
+  <link rel="stylesheet" href=" ${pageContext.request.contextPath}/resources/references/bagstore.css">
   
-  <link rel="stylesheet" href="resources/references/bootstrap.min.css">
-  <script type="text/javascript" src="resources/references/jquery.min.js"></script>
-  <script type="text/javascript" src="resources/references/bootstrap.min.js"></script>
-  <script type="text/javascript" src="resources/references/angular.min.js"></script>
+  <link rel="stylesheet" href=" ${pageContext.request.contextPath}/resources/references/bootstrap.min.css">
+  <script type="text/javascript" src=" ${pageContext.request.contextPath}/resources/references/jquery.min.js"></script>
+  <script type="text/javascript" src=" ${pageContext.request.contextPath}/resources/references/bootstrap.min.js"></script>
+  <script type="text/javascript" src=" ${pageContext.request.contextPath}/resources/references/angular.min.js"></script>
 </head>
 <body>
 

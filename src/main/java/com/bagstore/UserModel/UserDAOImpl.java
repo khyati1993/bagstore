@@ -5,10 +5,13 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.bagstore.ProductModel.Product;
 
 @Repository
+
+@EnableTransactionManagement
 public class UserDAOImpl implements UserDAO 
 {
 		
@@ -28,13 +31,13 @@ public class UserDAOImpl implements UserDAO
 	
 	public void insertUser(User u) 
 	{
-		this.getSessionFactory().getCurrentSession().saveOrUpdate(u);	
+		this.getSessionFactory().getCurrentSession().save(u);	
 	}
 
 	public void updateUser(User u) 
 	{
 
-		this.getSessionFactory().getCurrentSession().saveOrUpdate(u);
+		this.getSessionFactory().getCurrentSession().update(u);
 	}
 
 	public void deleteUser(int uid) 

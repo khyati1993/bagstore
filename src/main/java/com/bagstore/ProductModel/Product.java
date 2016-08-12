@@ -1,11 +1,14 @@
 package com.bagstore.ProductModel;
-
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product implements Serializable{
@@ -29,13 +32,27 @@ public class Product implements Serializable{
 	private String ProductQty;
 	
 	private String ProductImage;
+
+	@Transient
+	private MultipartFile ProductFile;
 	
+	
+	
+	public MultipartFile getProductFile() {
+		return ProductFile;
+	}
+
+	public void setProductFile(MultipartFile productFile) {
+		ProductFile = productFile;
+	}
+
 	public Product()
 	{
 		
 	}
 
-	public long getProductId() {
+	public long getProductId()
+	{
 		return ProductId;
 	}
 
@@ -90,6 +107,6 @@ public class Product implements Serializable{
 	public void setProductImage(String productImage) {
 		ProductImage = productImage;
 	}
-	
-	
+		
 }
+

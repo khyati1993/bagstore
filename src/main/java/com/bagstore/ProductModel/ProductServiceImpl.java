@@ -52,4 +52,8 @@ public class ProductServiceImpl implements ProductService {
 		
 		return id;
 	}
+	@Transactional
+	public Product getProductWithMaxId() {
+		return dao.getProductWithMaxId();
+	}
 }

@@ -9,8 +9,7 @@ public interface UserService
 	public void updateUser(User u);
 	public void deleteUser(int uid);
 	
-	public User getProduct(int uid);
 	
-	public List<User> getAllProducts();
+	public List<User> getAllUsers();
 	
 }

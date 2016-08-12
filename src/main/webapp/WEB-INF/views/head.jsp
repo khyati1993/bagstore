@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,7 +62,7 @@ font-colour:
 }
 
 .sidenav {
-background-image: url('resources/images/sidebody.jpg');    height: 100%;
+background-image: url(${pageContext.request.contextPath}/resources/images/sidebody.jpg);    height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
@@ -109,15 +110,28 @@ width:50%}
 </style>
 
 </head>
-<body class="margin" background="resources/images/body.jpg">
+<body class="margin" background="${pageContext.request.contextPath}/resources/images/body.jpg">
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="index"><b>HOME</b></a>
-  <a href="login"><b>LOGIN</b></a>
-  <a href="signup"><b>SIGNUP</b></a>
-  <a href="viewallproducts"><b>PRODUCTS</b></a>
-  <a href="contactus"><b>CONTACT US</b></a>
-  <a href="aboutus"><b>ABOUT US</b></a>
+  <a href="${pageContext.request.contextPath}/javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <li><a href="${pageContext.request.contextPath}/index">Welcome ${pageContext.request.userPrincipal.name}</a></li>
+  <a href="${pageContext.request.contextPath}/index"><b>HOME</b></a>
+  	<c:choose>
+	      					<c:when test="${not empty pageContext.request.userPrincipal}">
+	      						
+	      						<li><a href="${pageContext.request.contextPath}/logout">Log Out</a></li>
+	      						
+	      					</c:when>
+	      					
+	      					<c:otherwise>
+	      						<li><a href="${pageContext.request.contextPath}/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        						<li ><a href="${pageContext.request.contextPath}/loginpage"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      					</c:otherwise>
+	 </c:choose>
+  <a href="${pageContext.request.contextPath}/viewallproducts"><b>PRODUCTS</b></a>
+  <a href="${pageContext.request.contextPath}/contactus"><b>CONTACT US</b></a>
+  <a href="${pageContext.request.contextPath}/aboutus"><b>ABOUT US</b></a>
+ <a href="${pageContext.request.contextPath}/initiateFlow"><b>NAVIGATION</b></a>
+
 </div>
 
 <div id="main">
@@ -125,7 +139,7 @@ width:50%}
 <div class="maindiv">
   <p align="center">LOVE FOR BAGS</p>
 </div>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img height="60px" width="150px" src="resources/images/menu.jpg" alt="noimage"></img></span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()"><img height="60px" width="150px" src="${pageContext.request.contextPath}/resources/images/menu.jpg" alt="noimage"></img></span>
   
 <script>
 function openNav() {

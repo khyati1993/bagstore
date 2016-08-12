@@ -195,9 +195,9 @@ width:50%}
 		        width:80%;
 		        margin: auto;
 		        background: red; /* For browsers that do not support gradients */
-		        background: -webkit-linear-gradient(left top, #ff1a75,#ffe6e6); /* For Safari 5.1 to 6.0 */
-		        background: -o-linear-gradient(bottom right, #ff1a75, #ffe6e6); /* For Opera 11.1 to 12.0 */
-		        background: -moz-linear-gradient(bottom right, #ff1a75, #ffe6e6); /* For Firefox 3.6 to 15 */
-		        background: linear-gradient(to bottom right, #ff1a75, #ffe6e6); /* Standard syntax (must be last) */
+		        background: -webkit-linear-gradient(left top, #ff99bb,#ffe6ee); /* For Safari 5.1 to 6.0 */
+		        background: -o-linear-gradient(bottom right, #ff99bb, #ffe6ee); /* For Opera 11.1 to 12.0 */
+		        background: -moz-linear-gradient(bottom right, #ff99bb, #ffe6ee); /* For Firefox 3.6 to 15 */
+		        background: linear-gradient(to bottom right, #ff99bb, #ffe6ee); /* Standard syntax (must be last) */
 		    }
 

@@ -1,78 +1,98 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+    
+    
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="en">
+    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-
-<c:import url="head-meta.jsp"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<title>signup</title>
+<c:import url="head-meta.jsp" />
 </head>
-	<style>
-				input
-				{
-
-				        width: 100%;
-				        padding: 12px 20px;
-				        margin: 8px 0;
-				        box-sizing: border-box;
-				        color: white;
-				 	    background-color:#ffccff ;
-				        color: black;
-				        border: 2px solid black;
-				        border-radius: 4px;
-				}
-.grad1 
-		    {
-		    	
-				align:center;
-			    border-radius:20px 20px 20px 20px ;
-		        padding:10px 10px;
-		        width:80%;
-		        background: red; /* For browsers that do not support gradients */
-		        background: -webkit-linear-gradient(left top, #ff1a75,#ffe6e6); /* For Safari 5.1 to 6.0 */
-		        background: -o-linear-gradient(bottom right, #ff1a75, #ffe6e6); /* For Opera 11.1 to 12.0 */
-		        background: -moz-linear-gradient(bottom right, #ff1a75, #ffe6e6); /* For Firefox 3.6 to 15 */
-		        background: linear-gradient(to bottom right, #ff1a75, #ffe6e6); /* Standard syntax (must be last) */
-		    }
-
-.tstyle{ 
-		 height: 20%;
-		 border-radius: 30px 30px 30px 30px; 
-		 font-family: "Brush Script MT", cursive;
-		 font-size: 30px;
-	     color: black;
-		 font-style: normal;
-		 font-variant: normal;
-		 font-weight: 300;
-		 line-height: 26.4px;
-		 align:center;
-			}
 
 
-				
-	</style>
 <body>
-				<c:import url="head.jsp"/>
-				<div class="grad1 tstyle" align="center">
-				<form>
-				<table align="center">
-				<tr>
-						<td>How to reach you via Email? </td>
-						<td><input type="email" placeholder="Enter Email"/></td>
-				</tr>
-				<tr>		
-						<td>What do we call you?</td>
-						<td><input type="text" placeholder="Choose a username"/></td>
-				</tr>
-				<tr>
-						<td>Get Secured</td>
-						<td><input type="password" placeholder="Chooose wisely"/></td>
-				</tr>
-						<td>Confirm Password</td>
-						<td><input type="password" placeholder="Confirm password"/></td>
-				<tr>
-						<td>How to contact you?</td>
-					    <td><input type="text" placeholder="Enter phonenumber"/></td>
-				</tr>			
-				<center>		
-				<tr align="center"><td><input type="button" value="Join us"></td></tr></center>
-</table></form></div></body></html>
+		<c:import url="head.jsp" />
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+			
+		
+<div align="center" class="grad1 tstyle">
+
+		<c:if test="${not empty passwordmismatch}">
+		<br>
+			<label class="alert alert-danger">Password Mismatch</label>
+		<br>
+		</c:if>
+
+		<c:if test="${not empty useralreadyexists}">
+		<br>
+			<label class="alert alert-danger">Username Already Exists</label>
+		<br>
+		</c:if>
+		
+		<c:if test="${not empty success}">
+		<br>
+			<label class="alert alert-success">User Created Successfully</label>
+		<br>
+		</c:if>
+
+        <form:form action="insertuser" method="post" modelAttribute="newuser">
+            <table>
+                <tr>
+                    <td colspan="2" align="center"><h2>JOIN US </h2></td>
+                </tr>
+                <tr><td>What do we call you?</td>
+                    <td><form:input path="Username" placeholder="username" /></td>
+                    <td class="alert alert-danger"><form:errors path="Username"/></td>
+                </tr>
+                <tr>
+                    <td>Get secured</td>
+                    <td><form:password path="Password" placeholder="Password"/></td>
+                    <td class="alert alert-danger"><form:errors path="Password"/></td>
+                </tr>
+                
+                
+                  <tr>
+                    <td>Be sure about your security</td>
+                    <td><form:input type="password" path="CPassword" placeholder="confirm password" /></td>
+                    
+                </tr>
+                <tr>
+                    <td>Where do we send notifications?</td>
+                    <td><form:input path="Email" placeholder="email address" /></td>
+                    <td class="alert alert-danger"><form:errors path="Email"/></td>
+                    
+                </tr>
+              
+                <tr>
+                    <td>Where to speak with you?</td>
+                    <td><form:input path="Phone" placeholder="contact number" /></td>
+                    <td class="alert alert-danger"><form:errors path="Phone"/></td>
+                </tr>
+                
+                
+                
+                  <tr>
+                    <td>Address</td>
+                    <td><form:input path="address" /></td>
+                    <td class="alert alert-danger"><form:errors path="address" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Join US" /></td>
+                </tr>
+            </table>
+        </form:form>
+        </div>
+       <br><br>
+
+</body>
+</html>

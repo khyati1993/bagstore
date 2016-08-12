@@ -134,27 +134,25 @@ width:50%}
 				}
 
 </style>
-
-<body>
-<c:import url="head.jsp"/>
-
   
 <script>
-		var myApp = angular.module("myApp", []);
-		myApp.controller("myCtrl", function($scope)
-			{
-		 var products =${JSONdata}; 
-		 
-		 $scope.products=products ;
-			}
-		);
+{
+	var myApp = angular.module('myApp',[]);
+	
+	myApp.controller("abc",function ($scope)
+	{
+		$scope.data = ${data};
+	})
+};
 </script>
 
 
 
-<body ng-app="myApp" ng-controller="myCtrl"><br>
+<body ng-app="myApp" ng-controller="abc"><br>
+<c:import url="head.jsp"/>
+
 <div align="right">
-<a href="addproduct"><input type="button" value="Add Product" class="btn btn-success"></a> 
+<a href="${pageContext.request.contextPath}/addproduct"><input type="button" value="Add Product" class="btn btn-success"></a> 
 </div>
 <center>
 <p class="tstyle">What are you looking for ?</p>
@@ -163,18 +161,18 @@ width:50%}
 	<br>
 	<br><center>
 	<table class="table table-hover" align="center">
-				<tr ng-repeat="x in products | filter:test"  align="center">
+				<tr ng-repeat="x in data| filter:test"  align="center">
 				<td align="center">
-				<img src=" {{ x.productimage }} " height=300px width=300px/></td>
-				<td align="center"><br><br><br><br><br><br>
-					Name:{{ x.productname }}<br>
-					Price:{{ x.productprice }}<br>
-					Id:{{ x.productid }}
+				<img src=" {{ x.ProductImage }} " height=300px width=300px/></td>
+				<td align="center"  class="tstyle"><br><br><br>
+					Name:{{ x.ProductName }}<br><br>
+					Price:{{ x.ProductPrice }}<br><br>
+					Id:{{ x.ProductId }}
 				</td>
-				<td align="center"><br></br>
-				<a href="viewproduct"><input type="button" value="View" class="btn btn-info"/></a><br><br>
-				<a href="updateproduct"><input type="button" value="Update" class="btn btn-warning"/></a><br><br>
-				<a href="viewproduct"><input type="button" value="Delete" class="btn btn-danger"/></a>
+				<td align="center"><br></br><br>
+				<a href="${pageContext.request.contextPath}/viewproduct/{{x.ProductId}}"><input type="button" value="View" class="btn btn-info btn-lg"/></a><br><br>
+				<a href="${pageContext.request.contextPath}/updateproduct/{{x.ProductId}}"><input type="button" value="Update" class="btn btn-warning btn-lg"/></a><br><br>
+				<a href="${pageContext.request.contextPath}/delete/{{x.ProductId}}"><input type="button" value="Delete" class="btn btn-danger btn-lg"/></a>
 				</td>
 		    </tr>	
 	</table>

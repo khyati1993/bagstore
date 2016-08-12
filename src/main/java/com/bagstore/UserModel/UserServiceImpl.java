@@ -3,10 +3,12 @@ package com.bagstore.UserModel;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bagstore.ProductModel.ProductDAO;
 
+@Service
 public class UserServiceImpl implements UserService
 {	
 	@Autowired
@@ -31,15 +33,9 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Transactional
-	public User getProduct(int uid) 
-	{
-		return dao.getUser(uid);
-	}
-
-	@Transactional
-	public List<User> getAllProducts() 
-	{
+	public List<User> getAllUsers() {
 		return dao.getAllUsers();
 	}
+
 
 }
